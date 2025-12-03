@@ -41,7 +41,13 @@ public class Address {
                 if (!((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))) {
                     return false;
                 }
+            } else {
+                if (!(c >= '0' && c <= '9')) {
+                    return false;
+                }
             }
         }
+
+        return true;
     }
 }
