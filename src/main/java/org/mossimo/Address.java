@@ -30,6 +30,18 @@ public class Address {
     }
 
     public static boolean isPostalCodeValid(String postalCode) {
+        if (postalCode == null || postalCode.length() != 6) {
+            return false;
+        }
 
+        for (int i = 0; i < 6; i++) {
+            char c = postalCode.charAt(i);
+
+            if (i % 2 == 0) {
+                if (!((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))) {
+                    return false;
+                }
+            }
+        }
     }
 }
