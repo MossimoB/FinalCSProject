@@ -1,8 +1,22 @@
 package org.mossimo;
 
 import lombok.*;
+import java.util.Scanner;
 
 public class Address {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a postal code to test: ");
+        String postalCode = scanner.nextLine();
+
+        if (Address.isPostalCodeValid((postalCode))) {
+            System.out.println("Postal code " + postalCode.toUpperCase() + " is valid.");
+        } else {
+            System.out.println("Postal code " + postalCode + " is invalid.");
+        }
+    }
+
     private int streetNo;
     private String street;
     private String city;
