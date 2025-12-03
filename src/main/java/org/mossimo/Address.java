@@ -1,9 +1,22 @@
 package org.mossimo;
 
-import lombok.*;
 import java.util.Scanner;
 
+import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.EqualsAndHashCode;
+
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 public class Address {
+
+    // USED TO TEST THE  isPostalCodeValid  METHOD
+    /*
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -16,6 +29,8 @@ public class Address {
             System.out.println("Postal code " + postalCode + " is invalid.");
         }
     }
+
+     */
 
     private int streetNo;
     private String street;
