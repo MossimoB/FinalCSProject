@@ -42,6 +42,14 @@ public class Address {
         AB, BC, MB, NB ,NL, NT, NU, ON, PE, QC, SK, YT
     }
 
+    /**
+     *
+     * @param streetNo is the number of the street
+     * @param street is the name of the street
+     * @param city is the city the user lives in
+     * @param province is the province that the city is located in
+     * @param postalCode is the user's area code
+     */
     public Address(int streetNo, String street, String city, Province province, String postalCode) {
         if (isPostalCodeValid(postalCode)) {
             this.streetNo = streetNo;
@@ -58,6 +66,11 @@ public class Address {
         }
     }
 
+    /**
+     * Checks if a postcode is valid or not, while ensuring that the length is equal to 6
+     * @param postalCode is the user's area code
+     * @return true or false depending on whether the inputed postal code is valid or not
+     */
     public static boolean isPostalCodeValid(String postalCode) {
         if (postalCode == null || postalCode.length() != 6) {
             return false;
