@@ -1,6 +1,8 @@
 # FinalCSProject
 
-## Author: Mossimo Bianco 2585451
+## School System
+
+### Author: Mossimo Bianco 2585451
 
 
 
