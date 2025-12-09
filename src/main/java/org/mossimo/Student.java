@@ -83,4 +83,13 @@ public class Student {
 
         return true;
     }
+
+    /**
+     * Converts student to a simplified string (studentId, studentName, departmentName)
+     * @return the simplified string
+     */
+    public String toSimplifiedString() {
+        String deptName = (department != null) ? department.getDepartmentName() : "N/A";
+        return studentId + " - " + studentName + " (" + deptName + ")";
+    }
 }
