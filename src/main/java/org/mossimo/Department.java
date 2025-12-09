@@ -26,7 +26,7 @@ public class Department {
         }
     }
 
-    public class boolean isDepartmentNameValid(String departmentName) {
+    public static boolean isDepartmentNameValid(String departmentName) {
         if (departmentName == null || departmentName.isEmpty()) {
             return false;
         }
