@@ -17,6 +17,10 @@ public class Department {
     private String departmentName;
     private static int nextId = 1;
 
+    /**
+     * Constructor with only departmentName
+     * @param departmentName determines that is departmentName is valid, then all fields are set to null
+     */
     public Department(String departmentName) {
         if (isDepartmentNameValid(departmentName)) {
             this.departmentId = String.format("D%02d", nextId++);
@@ -26,6 +30,11 @@ public class Department {
         }
     }
 
+    /**
+     * Checks if a department name is valid
+     * @param departmentName is the name to check
+     * @return true if valid, otherwise false
+     */
     public static boolean isDepartmentNameValid(String departmentName) {
         if (departmentName == null || departmentName.isEmpty()) {
             return false;
