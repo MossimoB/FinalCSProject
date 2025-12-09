@@ -36,4 +36,29 @@ public class Student {
         this.department = department;
         this.registeredCourses = new ArrayList<>();
     }
+
+    /**
+     * Drops a course for the student
+     * Removes student from course's registeredStudents list
+     * @param course is the course to drop
+     * @return true if successfully dropped, false if not registered
+     */
+    public boolean registerCourse(Course course) {
+        if (registeredCourses.contains(course)) {
+            return false;
+        }
+    
+        registeredCourses.add(course);
+        course.registerStudent(this);
+    
+        for (Assignment a : course.getAssignments()) {
+            a.getScores().add(null);
+        }
+    
+        return true;
+    }
+
+    public boolean dropCourse(Course course) {
+        
+    }
 }
