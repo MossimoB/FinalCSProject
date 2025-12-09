@@ -60,7 +60,7 @@ public class Address {
 
     public void setPostalCode(String postalCode) {
         if (isPostalCodeValid(postalCode)) {
-            this.postalCode - postalCode.toUpperCase();
+            this.postalCode = postalCode.toUpperCase();
         } else {
             System.out.println("Invalid postal code. Not set.");
         }
