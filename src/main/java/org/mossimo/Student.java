@@ -38,10 +38,11 @@ public class Student {
     }
 
     /**
-     * Drops a course for the student
-     * Removes student from course's registeredStudents list
-     * @param course is the course to drop
-     * @return true if successfully dropped, false if not registered
+     * Registers a course for the student
+     * Adds student to course's registeredStudents list
+     * Appends null for each assignment score
+     * @param course is the course to register
+     * @return true if successfully registered, false if already registered
      */
     public boolean registerCourse(Course course) {
         if (registeredCourses.contains(course)) {
@@ -58,7 +59,28 @@ public class Student {
         return true;
     }
 
+    /**
+     * Drops a course for the student
+     * Removes student from course's registeredStudents list
+     * @param course is the course to drop
+     * @return true if successfully dropped, false if not registered
+     */
     public boolean dropCourse(Course course) {
-        
+        if (!registeredCourses.contains(course)) {
+            return false;
+        }
+
+        registeredCourses.remove(course);
+        course.getRegisteredStudents().remove(this);
+
+        for (Assignment a : course.getAssignments()) {
+            int index = course.getRegisteredStudents().indexOf(this);
+
+            if (index >= 0 && index < a.getScores().size()) {
+                a.getScores().remove(index);
+            }
+        }
+
+        return true;
     }
 }
