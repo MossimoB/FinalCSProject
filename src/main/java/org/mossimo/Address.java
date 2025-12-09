@@ -42,6 +42,15 @@ public class Address {
         AB, BC, MB, NB ,NL, NT, NU, ON, PE, QC, SK, YT
     }
 
+    /**
+     * Constructor that sets all fields. Validates postal code before assigning
+     * If postal code is invalid, all fields are set to null (0)
+     * @param streetNo is the number of student's street
+     * @param street is the student's street name
+     * @param city is where the student resides
+     * @param province is where the city is located
+     * @param postalCode is the area of the city where the street is located
+     */
     public Address(int streetNo, String street, String city, Province province, String postalCode) {
         if (isPostalCodeValid(postalCode)) {
             this.streetNo = streetNo;
@@ -66,6 +75,12 @@ public class Address {
         }
     }
 
+
+    /**
+     * Validates a postal code string in CDCDCD format
+     * @param postalCode the postal code string
+     * @return true if valid, otherwise false 
+     */
     public static boolean isPostalCodeValid(String postalCode) {
         if (postalCode == null || postalCode.length() != 6) {
             return false;
