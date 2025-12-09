@@ -92,4 +92,18 @@ public class Student {
         String deptName = (department != null) ? department.getDepartmentName() : "N/A";
         return studentId + " - " + studentName + " (" + deptName + ")";
     }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder(studentId + " - " + studentName + " - " + gender +
+                "\nAddress: " + address +
+                "\nDepartment: " + department +
+                "\nRegistered Courses:\n");
+
+        for (Course c : registeredCourses) {
+            result.append(c.toSimplifiedString()).append("\n");
+        }
+
+        return result.toString();
+    }
 }
