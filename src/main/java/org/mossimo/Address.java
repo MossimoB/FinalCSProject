@@ -58,6 +58,14 @@ public class Address {
         }
     }
 
+    public void setPostalCode(String postalCode) {
+        if (isPostalCodeValid(postalCode)) {
+            this.postalCode - postalCode.toUpperCase();
+        } else {
+            System.out.println("Invalid postal code. Not set.");
+        }
+    }
+
     public static boolean isPostalCodeValid(String postalCode) {
         if (postalCode == null || postalCode.length() != 6) {
             return false;
