@@ -27,7 +27,18 @@ public class Department {
         }
     }
     
-    public class boolean isDepartmentNameValid(departmentName String) {
-        
+    public class boolean isDepartmentNameValid(String departmentName) {
+        if (departmentName == null || departmentName.isEmpty()) {
+            return false;
+        }
+
+        for (int i = 0; i < departmentName.length(); i++) {
+            char c = departmentName.charAt(i);
+            if (!((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == ' ')) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
