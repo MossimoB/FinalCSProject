@@ -12,6 +12,7 @@ import java.util.ArrayList;
 @ToString
 @EqualsAndHashCode
 public class Student {
+
     private String studentId;
     private String studentName;
     private Gender gender;
