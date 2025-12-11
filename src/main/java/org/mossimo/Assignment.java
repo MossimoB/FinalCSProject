@@ -39,4 +39,18 @@ public class Assignment {
 
         return sum / scores.size();
     }
+
+    /**
+     * Generates random scores for each student based on the required rules.
+     */
+    public void generateRandomScore() {
+
+        for (int i = 0; i < scores.size(); i++) {
+
+            int category = (int) (Math.random() * 11); // 0 to 10
+            int generatedScore;
+
+            if (category == 0) {
+                generatedScore = (int) (Math.random() * 60); // [0,60)
+            } else if
 }
