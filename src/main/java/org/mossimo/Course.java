@@ -32,4 +32,16 @@ public class Course {
         this.courseId = "C-" + department.getDepartmentId() + "-" + twoDigit;
     }
 
+    /**
+     * Checks if all assignment weights sum to 100.
+     */
+    public boolean isAssignmentWeightValid() {
+        double sum = 0;
+
+        for (Assignment a : assignments) {
+            sum += a.getWeight();
+        }
+
+        return Math.abs(sum - 100) < 0.0001;
+    }
 }
