@@ -65,5 +65,14 @@ public class Assignment {
             scores.set(i, generatedScore);
         }
     }
-    
+
+    /**
+     * Converts assignment to string.
+     */
+    @Override
+    public String toString() {
+        return "Assignment ID: " + assignmentId +
+                ", Name: " + assignmentName +
+                ", Weight: " + weight;
+    }
 }
