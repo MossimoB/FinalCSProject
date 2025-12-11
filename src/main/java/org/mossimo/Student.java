@@ -67,20 +67,17 @@ public class Student {
      * @return true if successfully dropped, false if not registered
      */
     public boolean dropCourse(Course course) {
-        if (!registeredCourses.contains(course)) {
-            return false;
-        }
-
-        registeredCourses.remove(course);
-        course.getRegisteredStudents().remove(this);
+        int index = course.getRegisteredStudents().indexOf(this);
+        if (index == -1) return false;
 
         for (Assignment a : course.getAssignments()) {
-            int index = course.getRegisteredStudents().indexOf(this);
-
-            if (index >= 0 && index < a.getScores().size()) {
+            if (index < a.getScores().size()) {
                 a.getScores().remove(index);
             }
         }
+
+        course.getRegisteredStudents().remove(index);
+        registeredCourses.remove(course);
 
         return true;
     }
