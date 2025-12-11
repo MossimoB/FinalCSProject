@@ -167,4 +167,25 @@ public class Course {
         return courseId + " - " + courseName + " - " + credits + " - " + department.getDepartmentName();
     }
 
+    @Override
+    public String toString() {
+        String text = "Course ID: " + courseId +
+                "\nCourse Name: " + courseName +
+                "\nCredits: " + credits +
+                "\nDepartment: " + department.getDepartmentName() +
+                "\nAssignments:\n";
+
+        for (Assignment a : assignments) {
+            text += "  - " + a.toString() + "\n";
+        }
+
+        text += "Registered Students:\n";
+        for (Student s : registeredStudents) {
+            text += "  - " + s.toSimplifiedString() + "\n";
+        }
+
+        text += "Assignment Weights Valid: " + isAssignmentWeightValid();
+
+        return text;
+    }
 }
