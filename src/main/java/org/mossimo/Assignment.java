@@ -47,10 +47,23 @@ public class Assignment {
 
         for (int i = 0; i < scores.size(); i++) {
 
-            int category = (int) (Math.random() * 11); // 0 to 10
+            int category = (int) (Math.random() * 11);
             int generatedScore;
 
             if (category == 0) {
-                generatedScore = (int) (Math.random() * 60); // [0,60)
-            } else if
+                generatedScore = (int) (Math.random() * 60);
+            } else if (category == 1 || category == 2) {
+                generatedScore = 60 + (int) (Math.random() * 10);
+            } else if (category == 3 || category == 4) {
+                generatedScore = 70 + (int) (Math.random() * 10);
+            } else if (category >= 5 && category <= 8) {
+                generatedScore = 80 + (int) (Math.random() * 10);
+            } else { // 9 or 10
+                generatedScore = 90 + (int) (Math.random() * 11);
+            }
+
+            scores.set(i, generatedScore);
+        }
+    }
+    
 }
