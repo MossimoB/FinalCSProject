@@ -24,7 +24,6 @@ public class Course {
         this.courseName = courseName;
         this.credits = credits;
         this.department = department;
-
         this.assignments = new ArrayList<>();
         this.registeredStudents = new ArrayList<>();
 
