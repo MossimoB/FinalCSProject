@@ -150,5 +150,14 @@ public class Course {
 
             System.out.println(row);
         }
+
+        // Averages row
+        String avgRow = "Average          ";
+        for (Assignment a : assignments) {
+            avgRow += (int) Math.round(a.calcAssignmentAvg()) + "            ";
+        }
+
+        System.out.println(avgRow);
     }
+
 }
