@@ -31,4 +31,5 @@ public class Course {
         String twoDigit = String.format("%02d", nextId++);
         this.courseId = "C-" + department.getDepartmentId() + "-" + twoDigit;
     }
+
 }
