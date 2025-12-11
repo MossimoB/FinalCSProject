@@ -15,4 +15,11 @@ public class Assignment {
     private ArrayList<Integer> scores;
     private static int nextId = 1;
   
+    public Assignment(String assignmentName, double weight) {
+        this.assignmentId = "A" + String.format("%03d", nextId++);
+        this.assignmentName = assignmentName;
+        this.weight = weight;
+        this.scores = new ArrayList<>();
+    }
 }
+
