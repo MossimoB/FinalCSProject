@@ -44,4 +44,25 @@ public class Course {
 
         return Math.abs(sum - 100) < 0.0001;
     }
+
+    /**
+     * Registers a student into the course.
+     * Adds the student to registeredStudents and adds a null score placeholder
+     * to each assignment.
+     */
+    public boolean registerStudent(Student student) {
+
+        if (registeredStudents.contains(student)) {
+            return false;
+        }
+
+        registeredStudents.add(student);
+
+        // Add null placeholder for this student in every assignment
+        for (Assignment a : assignments) {
+            a.getScores().add(null);
+        }
+
+        return true;
+    }
 }
