@@ -160,4 +160,11 @@ public class Course {
         System.out.println(avgRow);
     }
 
+    /**
+     * Returns a simplified version of the course.
+     */
+    public String toSimplifiedString() {
+        return courseId + " - " + courseName + " - " + credits + " - " + department.getDepartmentName();
+    }
+
 }
