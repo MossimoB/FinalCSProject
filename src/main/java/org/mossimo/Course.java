@@ -90,4 +90,28 @@ public class Course {
             a.generateRandomScore();
         }
     }
+
+    /**
+     * Calculates each student's weighted average.
+     */
+    public int[] calcStudentsAverage() {
+        int[] results = new int[registeredStudents.size()];
+
+        for (int s = 0; s < registeredStudents.size(); s++) {
+
+            double total = 0;
+
+            for (Assignment a : assignments) {
+                Integer score = a.getScores().get(s);
+
+                if (score != null) {
+                    total += score * (a.getWeight() / 100);
+                }
+            }
+
+            results[s] = (int) Math.round(total);
+        }
+
+        return results;
+    }
 }
