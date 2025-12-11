@@ -27,7 +27,7 @@ public class Student {
 
     /**
      * Constructor with name, gender, address, and department
-     * Automaticlaly generates studentId and initializes registeredCourses list
+     * Automatically generates studentId and initializes registeredCourses list
      */
     public Student(String studentName, Gender gender, Address address, Department department) {
         this.studentId = String.format("S%06d", nextId++);
