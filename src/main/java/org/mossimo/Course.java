@@ -65,4 +65,29 @@ public class Course {
 
         return true;
     }
+
+    /**
+     * Adds a new assignment to the course.
+     */
+    public boolean addAssignment(String assignmentName, double weight, int maxScore) {
+
+        Assignment newAssign = new Assignment(assignmentName, weight);
+
+        // Add null for each existing student
+        for (int i = 0; i < registeredStudents.size(); i++) {
+            newAssign.getScores().add(null);
+        }
+
+        assignments.add(newAssign);
+        return true;
+    }
+
+    /**
+     * Generates random scores for every assignment and student.
+     */
+    public void generateScores() {
+        for (Assignment a : assignments) {
+            a.generateRandomScore();
+        }
+    }
 }
