@@ -114,4 +114,41 @@ public class Course {
 
         return results;
     }
+
+    /**
+     * Displays the scores table for the course.
+     */
+    public void displayScores() {
+
+        System.out.println("Course: " + courseName + " (" + courseId + ")");
+
+        // Header row
+        String header = "                ";
+        for (Assignment a : assignments) {
+            header += a.getAssignmentName() + "   ";
+        }
+        header += "Final Score";
+        System.out.println(header);
+
+        int[] finalScores = calcStudentsAverage();
+
+        // Student rows
+        for (int i = 0; i < registeredStudents.size(); i++) {
+            Student s = registeredStudents.get(i);
+
+            String row = s.getStudentName();
+            while (row.length() < 18) {
+                row += " ";
+            }
+
+            for (Assignment a : assignments) {
+                Integer sc = a.getScores().get(i);
+                row += sc + "            ";
+            }
+
+            row += finalScores[i];
+
+            System.out.println(row);
+        }
+    }
 }
