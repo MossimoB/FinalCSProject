@@ -16,4 +16,19 @@ public class Course {
     private ArrayList<Student> registeredStudents;
     private static int nextId = 1;
 
+
+    /**
+     * Constructor that auto-generates the course ID in format: C-Dxx-yy
+     */
+    public Course(String courseName, double credits, Department department) {
+        this.courseName = courseName;
+        this.credits = credits;
+        this.department = department;
+
+        this.assignments = new ArrayList<>();
+        this.registeredStudents = new ArrayList<>();
+
+        String twoDigit = String.format("%02d", nextId++);
+        this.courseId = "C-" + department.getDepartmentId() + "-" + twoDigit;
+    }
 }
