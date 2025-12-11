@@ -1,7 +1,5 @@
 package org.mossimo;
 
-import java.util.Scanner;
-
 import lombok.*;
 import lombok.Getter;
 import lombok.Setter;
