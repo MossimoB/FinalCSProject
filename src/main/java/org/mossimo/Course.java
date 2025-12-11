@@ -188,4 +188,15 @@ public class Course {
 
         return text;
     }
+
+    /**
+     * Checks equality by courseId.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Course)) return false;
+        Course other = (Course) o;
+        return this.courseId.equals(other.courseId);
+    }
 }
+
