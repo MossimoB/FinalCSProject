@@ -17,7 +17,6 @@ public class Course {
     private ArrayList<Student> registeredStudents;
     private static int nextId = 1;
 
-
     /**
      * Constructor that auto-generates the course ID in format: C-Dxx-yy
      */
