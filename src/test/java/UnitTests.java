@@ -1,12 +1,9 @@
+import org.mossimo.*;
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Assertions;
-
-import org.mossimo.Address;
-import org.mossimo.Assignment;
-import org.mossimo.Department;
-import util.Util;
-import java.util.ArrayList;
 
 public class UnitTests {
 
@@ -64,6 +61,59 @@ public class UnitTests {
 
         double expected = 85.0;
         double actual = assignment.calcAssignmentAvg();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    // Course Tests
+    @Test
+    @DisplayName("Register student to course successfully")
+    void testRegisterStudent() {
+        Department department = new Department("Math");
+        Course course = new Course("Algebra", 3.0, department);
+
+        Address address = new Address(
+                10, "Main", "Toronto",
+                Address.Province.ON, "A1B2C3"
+        );
+
+        Student student = new Student(
+                "Alice",
+                Student.Gender.FEMALE,
+                address,
+                department
+        );
+
+        boolean expected = true;
+        boolean actual = course.registerStudent(student);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Assignment weights sum to 100")
+    void testAssignmentWeightValid() {
+        Department department = new Department("Computer Science");
+        Course course = new Course("Programming", 3.0, department);
+
+        course.addAssignment("Quiz", 20, 100);
+        course.addAssignment("Midterm", 30, 100);
+        course.addAssignment("Final", 50, 100);
+
+        boolean expected = true;
+        boolean actual = course.isAssignmentWeightValid();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+    // Util Tests
+    @Test
+    @DisplayName("Convert string to Title Case")
+    void testToTitleCase() {
+        String input = "computer science AND math";
+        String expected = "Computer Science And Math";
+        String actual = Util.toTitleCase(input);
 
         Assertions.assertEquals(expected, actual);
     }
